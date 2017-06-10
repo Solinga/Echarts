@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        
+        <style type="text/css">
+        	body,html{
+        		width: 100%;
+        		height: 100%;
+        	}
+        	div{
+        		width: 33%;
+        		height: 50%;
+        		border: 1px solid #000;
+        		float: left;
+        		overflow: hidden;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div id="box1"></div>	
+    	<div id="box2"></div>
+    	<div id="box3"></div>
+    	<div id="box4"></div>
+    	<div id="box5"></div>	
+    	<div id="box6"></div>
+    </body>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript">
+    // 工厂函数
+    	function $(id){
+    		return document.getElementById(id);
+    	}
+    	// 柱状图
+    	var myEchart1=echarts.init($('box1'));
+    	myEchart1.setOption({
+    		title:{
+    			text:'柱状图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		// x轴
+    		xAxis:{
+    			data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋'],
+    		},
+    		yAxis:{},
+    		series:[{
+    			name:'销量',
+    			type:'bar',
+    			data:[5,20,35,10,10]
+    		}]
+    	})
+
+    	// 折线图
+    	var myEchart2=echarts.init($('box2'));
+    	myEchart2.setOption({
+    		title:{
+    			text:'折线图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		// x轴
+    		xAxis:{
+    			data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋'],
+    		},
+    		yAxis:{},
+    		series:[{
+    			name:'销量',
+    			type:'line',   			
+    			data:[5,20,35,10,10]
+    		}]
+    	})
+    	// 平滑曲线图
+    	var myEchart3=echarts.init($('box3'));
+    	myEchart3.setOption({
+    		title:{
+    			text:'平滑曲线图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		// x轴
+    		xAxis:{
+    			data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋'],
+    		},
+    		yAxis:{},
+    		series:[{
+    			name:'销量',
+    			type:'line',
+    			// 是否显示平滑的线
+    			smooth:true,
+    			data:[5,20,35,10,10]
+    		}]
+    	})
+      	// 饼图
+    	var myEchart4=echarts.init($('box4'));
+    	myEchart4.setOption({
+    		title:{
+    			text:'饼图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		series:[{
+    			name:'销量',
+    			type:'pie',
+    			// 是否显示平滑的线
+    			smooth:true,
+    			data:[
+    			{value:5,name:'衬衫'},
+    			{value:10,name:'羊毛衫'},
+    			{value:20,name:'雪纺衫'},
+    			{value:10,name:'裤子'},
+    			{value:15,name:'高跟鞋'}]
+    		}]
+    	})
+    
+    // 环状饼图
+    	var myEchart5=echarts.init($('box5'));
+    	myEchart5.setOption({
+    		title:{
+    			text:'饼图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		series:[{
+    			name:'销量',
+    			type:'pie',
+    			// 添加属性
+    			// 两个参数：第一个是里面圆的大小，第二个是外面圆的大小
+    			radius:['40%','75%'],
+    			// 是否显示平滑的线
+    			smooth:true,
+    			data:[
+    			{value:5,name:'衬衫'},
+    			{value:10,name:'羊毛衫'},
+    			{value:20,name:'雪纺衫'},
+    			{value:10,name:'裤子'},
+    			{value:15,name:'高跟鞋'}]
+    		}]
+    	})
+// 多个图形叠加，添加图例
+    	var myEchart6=echarts.init($('box6'));
+    	myEchart6.setOption({
+    		title:{
+    			text:'柱状图'
+    		},
+    		// 图例
+    		legend:{
+    			data:['销量']
+    		},
+    		tooltip:{},
+    		// x轴
+    		xAxis:{
+    			data:['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋'],
+    		},
+    		yAxis:{},
+    		series:[{
+    			name:'销量',
+    			type:'bar',
+    			data:[5,20,35,10,10]
+    		},{
+    			name:'销量',
+    			type:'pie',
+    			// 添加属性
+    			// 两个参数：第一个是里面圆的大小，第二个是外面圆的大小
+    			radius:['40%','75%'],
+    			// 是否显示平滑的线
+    			smooth:true,
+    			data:[
+    			{value:5,name:'衬衫'},
+    			{value:10,name:'羊毛衫'},
+    			{value:20,name:'雪纺衫'},
+    			{value:10,name:'裤子'},
+    			{value:15,name:'高跟鞋'}]
+    		}]
+    	})
+    </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>two.js</title>
+</head>
+<body>	
+	<div id="main"></div>
+	<script type="text/javascript" src="two.min.js"></script>
+	<script type="text/javascript">
+	// 1.获取
+		var elem=document.getElementById('main');
+	// 2.创建实例
+	// var params={width:400,height:400};
+	// var two=new Two(params).appendTo(elem);
+	// var two=new Two({width:400,height:400}).appendTo(elem);
+	// 画圆
+	// var circle=two.makeCircle(110,110,100);
+	// circle.fill="#881111";
+	// 通过update来更新画布的内容
+	// two.update();
+	// 矩形
+	// var rect=two.makeRectangle(115,90,150,100);
+	// rect.fill="orange";
+	// rect.noStroke();
+	// two.update();
+	// 椭圆
+	var ellipse=two.makeEllipse(100,40,90,30);
+	ellipse.stroke="#112233";
+	ellipse.linewidth=5;
+	ellipse.noFill();
+	two.update();
+	// 画直线makeLine
+	// 画曲线makeCurve
+	var curve = two.makeCurve(110, 100, 120, 50, 140, 150, 160, 50, 180, 150, 190, 100, false);   
+	curve.linewidth = 2;   
+	curve.scale = 1.75;   
+	curve.rotation = Math.PI / 2;   
+	curve.noFill(); 
+	two.update();
+// bind()
+	var two=new Two({
+		// 满屏
+		fullscrren:true,
+		// 自动启动
+		autostart:true
+	}).appendTo(document.body);
+	var rect=two.makeRectangle(two.width/2,two.height/2,150,150);
+	rect.fill='rgba(0,200,255)';
+	// 绑定
+	two.bind('update',function() {
+		rect.rotation+=0.01;
+	}).play();
+	</script>
+</body>
+</html>
